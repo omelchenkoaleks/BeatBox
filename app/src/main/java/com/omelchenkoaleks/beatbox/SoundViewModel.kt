@@ -3,7 +3,13 @@ package com.omelchenkoaleks.beatbox
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 
-class SoundViewModel : BaseObservable() {
+class SoundViewModel(private val beatBox: BeatBox) : BaseObservable() {
+
+    fun onButtonClicked() {
+        sound?.let {
+            beatBox.play(it)
+        }
+    }
 
     /**
      * Класс должен содержать два свойства: для объекта Sound и для объекта BeatBox.
